@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="/WEB-INF/tld/core.dsp.tld" prefix="c" ?>
+<?page title="${c:l('sp.crud.profile.admin')}"?>
+<?link rel="icon" tye="image/x-icon" href="/images/favicon.ico"?>
+
+<zk xmlns:n="native">
+    <window id="winAdminLimitAndRestrictions" title="${c:l('cms.tab.limitAndRestrictions')}" width="950px" height="500px" apply="com.alodiga.cms.web.controllers.AdminLimitAndRestrictionsController" closable ="true" border="normal" position="center,center" action="show: slideDown;hide: slideUp">
+        <style src="/css/general.css"/>
+        <borderlayout width="100%" height="100%" class="content-transparent">
+            <center border="none" flex="true" class="content-transparent" autoscroll="true">
+                <div align="center" >
+                    <hlayout >
+                        <div></div>
+                        <div width="1200px" align="left" height="780px">
+                            <hlayout>
+                                <div width="900px">
+                                    <vlayout>
+                                        <div height="5px" width="100%" style="background:#333;" align="left"></div>
+                                        <div>
+                                            <vlayout>
+                                                <label value="${c:l('cms.product.limitAndRestrictions')}" sclass="lblbold"/>
+                                                <grid fixedLayout="true">
+                                                    <columns>
+                                                        <column label="" width="290px"/>
+                                                        <column label="" width="290px"/>
+                                                        <column label="" width="290px"/>
+                                                    </columns>
+                                                    <rows>
+                                                        <row>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.channel')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.product')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.trasaction')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <combobox id="cmbChannel" width="250px" mold="rounded" readonly="true"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <label id="txtProduct" value="" width="250px" style="color:#837E76;"/>
+                                                            <hlayout>
+                                                                <combobox id="cmbTransaction" width="250px" mold="rounded" readonly="true"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.use')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.maxNumbTransDaily')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.maxNumbTransMont')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <label id="txtProductUse" value="" width="250px" style="color:#837E76;"/> 
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <intbox id="txtMaxNumbTransDaily" width="250px" constraint="no empty: ${c:l('error.field.required')},no negative" maxlength="30"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <intbox id="txtMaxNumbTransMont" width="250px" constraint="no empty: ${c:l('error.field.required')},no negative" maxlength="30"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.amountMinTransDomestic')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.amountMaxTransDomestic')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.amountMinTransInt')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <doublebox id="txtAmountMinTransDomestic" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/>
+                                                                <label id="lblReqDomestic1" value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <doublebox id="txtAmountMaxTransDomestic" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/>
+                                                                <label id="lblReqDomestic2" value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                               <doublebox id="txtAmountMinTransInt" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/> 
+                                                               <label id="lblReqInternational1" value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.amountMaxTransInt')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.dailyAmountLimitDomestic')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.monthlyAmountLimitDomestic')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                              <doublebox id="txtAmountMaxTransInt" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/>
+                                                              <label id="lblReqInternational2" value="*" sclass="lblreq" />  
+                                                            </hlayout>
+                                                            <hlayout>
+                                                               <doublebox id="txtDailyAmountLimitDomestic" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/> 
+                                                               <label id="lblReqDomestic3" value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                               <doublebox id="txtMonthlyAmountLimitDomestic" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/> 
+                                                               <label id="lblReqDomestic4" value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.dailyAmountLimitInt')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.product.limitAndRestrictions.monthlyAmountLimitInt')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                              <doublebox id="txtDailyAmountLimitInt" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/>  
+                                                              <label id="lblReqInternational3" value="*" sclass="lblreq" /> 
+                                                            </hlayout>
+                                                            <hlayout>
+                                                              <doublebox id="txtMonthlyAmountLimitInt" width="250px" constraint="no negative" format="#,##0.##" maxlength="30"/>
+                                                              <label id="lblReqInternational4" value="*" sclass="lblreq" /> 
+                                                            </hlayout>
+                                                           
+                                                        </row>
+                                                    </rows>
+                                                </grid>
+                                            </vlayout>
+                                        </div>
+                                        <div id="divInfo" height="20px" width="100%" style="background:#B6E59E;" align="left" visible="false"/>
+                                        <!--Buttons-->
+                                        <div align="right">
+                                            <button  id="btnSave" width="150px" label="${c:l('sp.common.actions.save')}" class="open orange"/>
+                                            <button  id="btnBack" width="150px" label="${c:l('sp.common.actions.back')}" class="open gray"/>
+                                        </div>
+                                    </vlayout>
+                                </div>
+                                <div></div>
+                            </hlayout>
+                        </div>
+                        <div></div>
+                    </hlayout>
+                </div>
+            </center>
+        </borderlayout>
+    </window>
+</zk>

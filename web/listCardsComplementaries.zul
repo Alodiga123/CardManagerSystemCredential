@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="/WEB-INF/tld/core.dsp.tld" prefix="c" ?>
+<?page title="${c:l('sp.common.page.title')}"?>
+<?link rel="icon" tye="image/x-icon" href="/images/favicon.ico"?>
+
+<zk xmlns:n="native">
+    <window width="100%" height="100%" apply="com.alodiga.cms.web.controllers.ListCardsComplementariesController" class="general-window">
+        <style src="/css/general.css"/>
+        <borderlayout width="100%" height="100%" class="content-transparent">
+            <center border="none" flex="true" class="content-transparent" autoscroll="true">
+                <div align="center" >
+                    <hlayout>
+                        <div></div>
+                        <div width="1200px" align="left" height="400px">
+                            <hlayout>
+                                <div width="900px">
+                                    <vlayout>
+                                        <div height="5px" width="100%" style="background:#333;" align="left"></div>
+                                        <div>
+                                            <!--Filters for Searching-->
+                                            <vlayout>
+                                                <hlayout style="text-align:right" width="845px">
+                                                    <label value="${c:l('cms.common.nameAndLastName')}" width="80px" sclass="lblbold"/>
+                                                    <textbox id="txtName" value="" width="160px" tooltiptext="${c:l('sp.common.searching.filter')}"/>
+                                                </hlayout>
+                                                <hlayout>
+                                                    <!--Add button-->
+                                                    <div align="left" width="490px">
+                                                        <button id="btnAdd" label="${c:l('sp.common.actions.add')}" width="80px" class="open orange" tooltiptext="${c:l('sp.common.actions.add.tooltip')}" visible="true"/>
+                                                    </div>
+                                                    <!--Filters button-->
+                                                    <div align="right" width="350px">
+                                                        <button id="btnSearch" label="${c:l('sp.common.actions.search')}" width="80px" class="open orange" tooltiptext="${c:l('sp.common.actions.search.filter.tooltip')}"/>
+                                                        <button  id="btnBack" width="80px" label="${c:l('sp.common.actions.back')}" class="open gray" onClick="Executions.sendRedirect(&quot;listRequest.zul&quot;)"/>
+                                                    </div>
+                                                </hlayout>
+                                            </vlayout>
+                                            <separator/>
+                                            <!--Record Listbox-->
+                                            <listbox id="lbxRecords" fixedLayout="true" width="895px" mold="paging" pageSize="5" height="250px">
+                                                <listhead>
+                                                    <listheader label="${c:l('cms.common.nameAndLastName')}" width="200px" sort="auto"/>
+                                                    <listheader label="${c:l('cms.common.identificationsTypes')}" width="205px" sort="auto"/>
+                                                    <listheader label="${c:l('cms.common.identificationNumber')}" width="200px" sort="auto"/>
+                                                    <listheader label="${c:l('cms.common.relationship')}" width="200px" sort="auto"/>
+                                                    <listheader label="-" width="45px"/>
+                                                    <listheader label="-" width="45px"/>
+                                                </listhead>
+                                            </listbox>
+                                        </div>
+                                    </vlayout>
+                                </div>
+                                <div></div>
+                            </hlayout>
+                        </div>
+                        <div></div>
+                    </hlayout>
+                </div>
+            </center>
+        </borderlayout>
+    </window>
+</zk>

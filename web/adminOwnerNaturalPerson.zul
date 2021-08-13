@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="/WEB-INF/tld/core.dsp.tld" prefix="c" ?>
+<?page title="${c:l('sp.crud.profile.admin')}"?>
+<?link rel="icon" tye="image/x-icon" href="/images/favicon.ico"?>
+
+<zk xmlns:n="native">
+    <window id="winAdminOwnerNaturalPerson" width="100%" height="100%" apply="com.alodiga.cms.web.controllers.AdminOwnerNaturalPersonController" class="general-window">
+        <style src="/css/general.css"/>
+        <borderlayout width="100%" height="100%" class="content-transparent">
+            <center border="none" flex="true" class="content-transparent" autoscroll="true">
+                <div align="center" >
+                    <hlayout >
+                        <div></div>
+                        <div width="1200px" align="left" height="1000px">
+                            <hlayout>
+                                <div width="900px">
+                                    <vlayout>
+                                        <div height="5px" width="100%" style="background:#333;" align="left"></div>
+                                        <div>
+                                            <vlayout>
+                                                <label value="${c:l('cms.common.data.basic')}" sclass="lblbold"/>
+                                                <grid fixedLayout="true">
+                                                    <columns>
+                                                        <column label="" width="290px"/>
+                                                        <column label="" width="290px"/>
+                                                        <column label="" width="290px"/>
+                                                    </columns>
+                                                    <rows>
+                                                        <row>
+                                                            <label value="${c:l('cms.common.country')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.identificationsTypes')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.identificationNumber')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <combobox id="cmbCountry" width="250px" mold="rounded" />
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <combobox id="cmbDocumentsPersonType" width="250px" mold="rounded"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <textbox id="txtIdentificationNumber" value="" width="250px" maxlength="40"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.common.expirationDate')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.identificationNumberOld')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.fullName')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <datebox id="txtDueDateDocumentIdentification" width="250px"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <textbox id="txtIdentificationNumberOld" value="" width="250px" maxlength="40"/>
+                                                            <hlayout>
+                                                                <textbox id="txtFullName" value="" width="250px" maxlength="40"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.common.fullLastName')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.naturalperson.MarriedLastName')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.birthPlace')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <textbox id="txtFullLastName" value="" width="250px" maxlength="40"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <textbox id="txtMarriedLastName" value="" width="250px" maxlength="40"/>
+                                                            <hlayout>
+                                                                <textbox id="txtBirthPlace" value="" width="250px" maxlength="45"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row> 
+                                                            <label value="${c:l('cms.common.birthday')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.gender')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.civilState')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <datebox id="txtBirthDay" width="250px"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <div align="left" width="260px">
+                                                                    <hbox>
+                                                                        <radiogroup id="gender" onCheck="choice1.value = self.selectedItem.label"/>
+                                                                        <grid>
+                                                                            <rows>
+                                                                                <row>
+                                                                                    <radio id="genderFemale" label="${c:l('cms.gender.female')}" radiogroup="gender" />
+                                                                                    <radio id="genderMale" label="${c:l('cms.gender.male')}" radiogroup="gender" />
+                                                                                </row>
+                                                                            </rows>                                                                    
+                                                                        </grid>                                                                
+                                                                    </hbox>
+                                                                </div>
+                                                                <div align="left" width="20px">
+                                                                    <label value="*" sclass="lblreq" />
+                                                                </div>
+                                                            </hlayout> 
+                                                            <hlayout>
+                                                                <combobox id="cmbCivilState" width="250px" mold="rounded" readonly="true" />
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.common.naturalperson.profession')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.naturalperson.familyResponsibilities')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.email')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <combobox id="cmbProfession" width="250px" mold="rounded" readonly="true" />
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <intbox id="txtFamilyResponsibilities" width="250px" constraint="no empty: ${c:l('error.field.required')},no negative" maxlength="2"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <textbox id="txtEmail" value="" width="250px" maxlength="60" constraint="/.+@.+\.[a-zA-Z_-]+/: ${c:l('cms.error.field.emailInvalidate')}"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                        <row>
+                                                            <label value="${c:l('cms.common.phoneType')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.common.phone')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <combobox id="cmbPhoneType" width="250px" mold="rounded" readonly="true" />
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <textbox id="txtPhoneNumber" value="" width="250px" maxlength="30"/>
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                        </row>
+                                                    </rows>
+                                                </grid>
+                                            </vlayout>
+                                        </div>
+                                        <div id="divInfo" height="20px" width="100%" style="background:#B6E59E;" align="left" visible="false"/>
+                                        <!--Buttons-->
+                                        <div align="right">
+                                            <button  id="btnSave" width="150px" label="${c:l('sp.common.actions.save')}" class="open orange" />
+                                            <button  id="btnBack" width="150px" label="${c:l('sp.common.actions.back')}" class="open gray" onClick="Executions.sendRedirect(&quot;listProgramOwner.zul&quot;)"/>
+                                        </div>
+                                    </vlayout>
+                                </div>
+                                <div></div>
+                            </hlayout>
+                        </div>
+                        <div></div>
+                    </hlayout>
+                </div>
+            </center>
+        </borderlayout>
+    </window>
+</zk>

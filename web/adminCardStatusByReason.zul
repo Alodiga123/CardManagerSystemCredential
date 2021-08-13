@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="/WEB-INF/tld/core.dsp.tld" prefix="c" ?>
+<?page title="${c:l('sp.crud.profile.admin')}"?>
+<?link rel="icon" tye="image/x-icon" href="/images/favicon.ico"?>
+<!--<?init class="com.alodiga.services.provider.web.security.InitiatorLoggedUser" ?>-->
+<zk xmlns:n="native">
+    <window id="winCardStatus" width="100%" height="100%" apply="com.alodiga.cms.web.controllers.AdminCardStatusByReasonControllers" class="general-window">
+        <style src="/css/general.css"/>
+        <borderlayout width="100%" height="100%" class="content-transparent">
+            <north border="none" size="52px" class="content-transparent">
+                <include src="adminHeader.zul"/>
+            </north>
+            <center border="none" flex="true" class="content-transparent" autoscroll="true">
+                <div align="center" >
+                    <hlayout>
+                        <div></div>
+                        <div width="1200px" align="left" height="780px">
+                            <hlayout>
+                                <div>
+                                    <include src="adminMainMenu.zul"/>
+                                </div>
+                                <div width="900px">
+                                    <vlayout>
+                                        <div height="20px" width="100%" align="left">
+                                            <!--Bread crumb-->
+                                            <hlayout>
+                                                <toolbarbutton label="${c:l('sp.bread.crumb.home')}" onClick='Executions.sendRedirect(&quot;home-admin.zul&quot;)'/>
+                                                |
+                                                <toolbarbutton label="${c:l('cms.crud.cardStatusByReason.list')}" onClick='Executions.sendRedirect(&quot;listCardStatusByReason.zul&quot;)'/>
+                                                |
+                                                <toolbarbutton id= "tbbTitle" label=""/>  
+                                            </hlayout> 
+                                        </div>
+                                        <div height="5px" width="100%" style="background:#333;" align="left"></div>
+                                        <div>
+                                            <vlayout>
+                                                <label value="${c:l('cms.common.data.basic')}" sclass="lblbold"/>
+                                                <grid fixedLayout="true">
+                                                    <columns>
+                                                        <column label="" width="290px"/>
+                                                        <column label="" width="290px"/>
+                                                        <column label="" width="290px"/>
+                                                    </columns> 
+                                                    <rows>
+                                                        <row>
+                                                            <label value="${c:l('cms.common.statusCard')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.crud.cardStatusByReason.updateReason')}" sclass="lblbold"/>
+                                                            <label value="${c:l('cms.chekBox.cardStatusByReason')}" sclass="lblbold"/>
+                                                        </row>
+                                                        <row>
+                                                            <hlayout>
+                                                                <combobox id="cmbCardStatus" width="250px" mold="rounded" readonly="true" />
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hlayout>
+                                                                <combobox id="cmbCardStatusReason" width="250px" mold="rounded" readonly="true" />
+                                                                <label value="*" sclass="lblreq" />
+                                                            </hlayout>
+                                                            <hbox>
+                                                                <radiogroup id="allowTable" onCheck="choice1.value = self.selectedItem.label" />
+                                                                <grid>
+                                                                    <rows>
+                                                                        <row>
+                                                                            <radio id="rAllowTableYes" label="${c:l('cms.commom.Yes')}" radiogroup="allowTable" />
+                                                                            <radio id="rAllowTableNo" label="${c:l('cms.commom.No')}" radiogroup="allowTable" />
+                                                                        </row>
+                                                                    </rows>
+                                                                </grid>
+                                                            </hbox>  
+                                                        </row>   
+                                                    </rows>
+                                                </grid>
+                                            </vlayout>
+                                        </div>    
+                                        <div id="divInfo" height="20px" width="100%" style="background:#B6E59E;" align="left" visible="false"/>
+                                        <!--Buttons-->
+                                        <hlayout>
+                                            <!--Add button-->
+                                            <div align="left" width="495px">
+                                                <button id="btnAdd" label="${c:l('cms.common.newRegistration')}" width="100px" class="open orange" tooltiptext="${c:l('sp.common.actions.add.tooltip')}" visible="true"/>
+                                            </div>
+                                            <!--Save button-->
+                                            <div align="right" width="400px">
+                                                <button  id="btnSave" width="150px" label="${c:l('sp.common.actions.save')}" class="open orange"/>
+                                                <button  id="btnBack" width="150px" label="${c:l('sp.common.actions.back')}" class="open gray" onClick="Executions.sendRedirect(&quot;listCardStatusByReason.zul&quot;)"/>
+                                            </div>
+                                        </hlayout> 
+                                    </vlayout>
+                                </div>
+                            </hlayout>
+                        </div>
+                        <div></div>
+                    </hlayout>
+                </div>
+            </center>
+            <south border="none" size="40px">
+                <include src="adminFooter.zul"/>
+            </south>
+        </borderlayout>
+    </window>
+</zk>
